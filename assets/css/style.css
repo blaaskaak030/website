@@ -20,6 +20,11 @@ body {
   width: 100vw;
 }
 
+h2 {
+  font-size: 3em;
+  color: var(--blaaskaak-red);
+}
+
 header {
   display: flex;
   padding: 3rem min(10vw, 5rem) 1.5rem 2.5rem;
@@ -36,6 +41,7 @@ header {
       transform: scale(1.35);
     }
   }
+
 
   & nav ol {
     list-style: none;
@@ -112,6 +118,43 @@ header {
       }
     }
   }
+}
+
+#nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
+  width: 40px;
+  height: 32px;
+}
+
+#nav-toggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#svg-hamburger {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+#svg-close {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.7);
+}
+
+#nav-toggle.active #svg-hamburger {
+  opacity: 0;
+  transform: rotate(45deg) scale(0.7);
+}
+
+#nav-toggle.active #svg-close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 @media (max-width: 400px) {

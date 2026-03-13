@@ -1,0 +1,9 @@
+#meet-the-band {
+  padding-left: 4em;;
+}
+
+h2 > img {
+  display: inline;
+  height: 1.5em;
+  vertical-align: bottom;
+}

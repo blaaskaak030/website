@@ -1,16 +1,45 @@
+#calendar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#calendar-content {
+  display: flex;
+  align-items: flex-start;
+  width: 55vw;
+  min-width: 55vw;
+}
+
+#calendar-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  margin: 0;
+  padding-right: 0.75rem;
+  flex-shrink: 0;
+
+  color: var(--blaaskaak-red);
+  font-size: 4em;
+}
+
 .list-container {
-  padding: 1em;
+  flex: 1;
+
+  & ul {
+    margin-top: 0;
+  }
 }
 
 .scale-up-hover-list {
   padding-left: .1em;
   width: 95%;
   list-style-type: none;
+
 }
 
 .scale-up-hover-list li {
   margin: 0;
-  padding: .75em;
+  padding: .5em;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
@@ -20,6 +49,10 @@
   grid-template-columns: 0.1fr 0.9fr;
   gap: 10px;
 
+  &:first-child {
+    padding-top: 0;
+  }
+
   &::after {
     content: "";
     display: block;
@@ -27,8 +60,8 @@
   }
 
   &:hover {
-    -webkit-transform: translate3d(0,0,0,);
-    transform: translate3d(0,0,0,);
+    -webkit-transform: translate3d(0, 0, 0, );
+    transform: translate3d(0, 0, 0, );
     -webkit-transform: scale(1.025, 1.025);
     -moz-transform: scale(1.025, 1.025);
     -o-transform: scale(1.025, 1.025);
@@ -63,11 +96,12 @@
 
 .event-details {
   overflow-wrap: anywhere;
+
   & h1 {
     display: block;
     margin-top: 0;
     margin-bottom: 0.4em;
-    font-size: 1.2em;
+    font-size: 1.5em;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
@@ -86,6 +120,6 @@
   }
 }
 
-#events > li > a {
+#events>li>a {
   color: inherit;
 }

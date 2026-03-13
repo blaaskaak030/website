@@ -1,7 +1,7 @@
 nav:
   - name: Home
-    page: /
+    page: '#top'
   - name: Over Ons
-    page: /over-ons/
+    page: '#meet-the-band'
   - name: Contact
-    page: /contact/
+    page: '#contact'

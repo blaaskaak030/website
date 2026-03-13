@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.Params.description }} ">
+  <meta name="author" content="{{ site.Title }}">
+  <meta name="robots" content="index, follow">
+
+  <title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}!</title>
+
+  {{ partial "seo.html" . }}
+
+  {{ with site.Data.basics.logo }}
+  <link rel="icon" href="{{ . }}">
+  {{ end }}
+
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ with resources.Get "css/style.css" | fingerprint -}}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- end }}
+
+  {{ with resources.Get "css/section-calendar.css" | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+
+  {{ with resources.Get "js/events.js" | fingerprint }}
+  <script type="module">
+    import {loadEvents} from "{{ .RelPermalink }}";
+    // loadEvents();
+  </script>
+  {{ end }}
+</head>
+
+<body>
+  <header>
+    <a href="/" aria-label="Homepage">
+      <img src="{{ site.Data.basics.logo }}" alt="Logo Blaaskaak" id="logo">
+    </a>
+    <nav>
+      <ol>
+        {{- $currentPageURL := page.RelPermalink -}}
+        {{ range site.Data.nav.nav }}
+        <li {{ if (eq $currentPageURL .page) -}}class="current" {{- end }}>
+          <a {{ if (eq $currentPageURL .page) -}}aria-current="page" {{- end }} href="{{ .page }}">{{ .name }}</a>
+        </li>
+        {{- end }}
+      </ol>
+    </nav>
+  </header>
+
+  <main>
+    <section id="calendar">
+      <div id="calendar-content">
+        <h2 id="calendar-title">Agenda</h2>
+        <div class="list-container">
+
+          <ul id="events" class="scale-up-hover-list">
+            <li>
+              <div class="event-date">
+                <p class="event-day">10</p>
+                <p class="event-month">jul</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Oud & Nieuw</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">10</p>
+                <p class="event-month">mei</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Fonteyn Utrecht</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">29</p>
+                <p class="event-month">mei</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Backyard festival Alkmaar</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">30</p>
+                <p class="event-month">mei</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">lepeltje lepeltje zwolle</h1>
+                <p class="event-description">Boek je tickets nu!</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">8</p>
+                <p class="event-month">jun</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Lepeltje lepeltje adam</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">29</p>
+                <p class="event-month">jun</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">lepeltje lepeltje Utrecht</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">31</p>
+                <p class="event-month">aug</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Lepeltje lepeltje lokaal Amersfoort</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+
+            <li>
+              <div class="event-date">
+                <p class="event-day">20</p>
+                <p class="event-month">sep</p>
+              </div>
+              <div class="event-details">
+                <h1 class="event-title">Bevestigd buurtfeest Utrecht Veemarkt</h1>
+                <p class="event-description"></p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- <ul id="events" class="scale-up-hover-list"></ul> -->
+          <!---->
+          <!-- <template id="event-template"> -->
+          <!--   <li> -->
+          <!--     <div class="event-date"> -->
+          <!--       <p class="event-day"></p> -->
+          <!--       <p class="event-month"></p> -->
+          <!--     </div> -->
+          <!--     <div class="event-details"> -->
+          <!--       <h1 class="event-title"></h1> -->
+          <!--       <p class="event-description"></p> -->
+          <!--     </div> -->
+          <!--   </li> -->
+          <!-- </template> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="meet-the-band" style="height:1000px">
+
+    </section>
+
+    <section id="bookings">
+
+    </section>
+
+
+  </main>
+</body>
+
+</html>
